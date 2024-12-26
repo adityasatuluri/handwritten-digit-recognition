@@ -32,7 +32,7 @@ body {
 canvas {
   width: 100%; /* Reduce a bit to provide padding inside the canvas-container */
   height: 100%;
-  border: 2px solid white;
+  border: 2px solid rgb(15, 15, 15);
   background-color: #000;
 }
 
