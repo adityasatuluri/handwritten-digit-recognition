@@ -8,10 +8,15 @@ function App() {
   const [confidence, setConfidence] = useState(null);
 
   return (
-    <div className="App">
-      <h1>Live Handwritten Digit Recognition</h1>
-      <Canvas setPrediction={setPrediction} setConfidence={setConfidence} />
-      <PredictionPanel prediction={prediction} confidence={confidence} />
+    <div className="app-container">
+      <div className="canvas-container">
+        <Canvas setPrediction={setPrediction} setConfidence={setConfidence} />
+      </div>
+
+      <div className="prediction-container">
+        <h1>Prediction Details</h1>
+        <PredictionPanel prediction={prediction} confidence={confidence} />
+      </div>
     </div>
   );
 }

@@ -6,17 +6,14 @@ def mnist():
         tf.keras.layers.Input(shape=(28, 28, 1), name="input_layer"),
         tf.keras.layers.Flatten(name="flatten_layer"),
         
-        # First Dense Layer with Batch Normalization and Dropout
         tf.keras.layers.Dense(256, activation='relu', name="dense_layer_1"),
         tf.keras.layers.BatchNormalization(name="batch_norm_1"),
         tf.keras.layers.Dropout(0.3, name="dropout_1"),
         
-        # Second Dense Layer with Batch Normalization and Dropout
         tf.keras.layers.Dense(128, activation='relu', name="dense_layer_2"),
         tf.keras.layers.BatchNormalization(name="batch_norm_2"),
         tf.keras.layers.Dropout(0.3, name="dropout_2"),
         
-        # Output Layer
         tf.keras.layers.Dense(10, activation='softmax', name="output_layer")
     ])
 
@@ -27,7 +24,6 @@ def mnist():
     )
     return model
 
-# Training setup and execution
 model = mnist()
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
@@ -38,5 +34,4 @@ x_test = x_test.reshape(-1, 28, 28, 1)
 
 model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 
-# Save the model
 model.save('mnist_model.h5')
